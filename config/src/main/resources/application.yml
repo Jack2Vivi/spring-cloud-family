@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+   #,jdbc
+    active: native
+  application:
+    # configserver, 无需其他配置可直接启动
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          #url 支持占位符 {application} {profile} {label}
+          uri: file///D:/yml/
+          # 配置服务器对Git服务器的SSL证书的验证是否跳过, 默认: false
+          skip-ssl-validation: true
+          # git服务器的超时时间, 单位秒, 默认: 5
+          timeout: 5
+          # 启动时服务git资源库的标识, 默认: false
+          clone-on-start: false
+        bootstrap: true
+        # spring.profiles.active=native 启用native
+        native:
+          #Windows -> file:///
+          #Others -> file://
+          #默认: [classpath:/, classpath:/config, file:./, file:./config]
+          #没有file: 前缀的默认值通常是类路径, 服务器中存在的任何属性源(application.*)在被发送到客户端之前都会被删除
+          search-locations: file:///D:/yml/
+          order: 1
+          # 禁止没有占位符的路径结果添加/{label}/标识, 默认: true
+          add-label-locations: true
+          fail-on-error: false
+#        svn:
+#          uri:
+#        vault:
+#          namespace:
+        #jdbc:
+        #  order: 2
+          #sql:
+  datasource:
+    password: root
+    username: root
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
