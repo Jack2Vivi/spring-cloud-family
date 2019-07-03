@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: zuul
+  profiles:
+    active: dev
+
+zuul:
+  routes:
+    users:
+      ddd
+

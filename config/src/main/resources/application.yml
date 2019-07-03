@@ -20,6 +20,8 @@ spring:
           timeout: 5
           # 启动时服务git资源库的标识, 默认: false
           clone-on-start: false
+        #从远程资源库加载配置, 默认: false
+        #JDBC资源库注意数据库配置需要自动注册, bootstrap引导程序默认不会注册数据库
         bootstrap: true
         # spring.profiles.active=native 启用native
         native:
