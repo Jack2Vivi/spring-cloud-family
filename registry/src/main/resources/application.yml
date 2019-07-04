@@ -1,5 +1,5 @@
 server:
-  port: 8761
+  port: 9000
 debug: true
 spring:
   application:
@@ -8,7 +8,16 @@ spring:
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: root
-#eureka:
-#  instance:
-#    hostname:
+  freemarker:
+    template-loader-path: classpath:/templates/
+    prefer-file-system-access: false
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
