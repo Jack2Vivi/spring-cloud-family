@@ -11,7 +11,7 @@
     <artifactId>config</artifactId>
     <version>${parent.version}</version>
     <name>config</name>
-    <description>Demo project for Config</description>
+    <description>Demo project for Spring Cloud Config Server</description>
 
     <properties>
         <java.version>1.8</java.version>
